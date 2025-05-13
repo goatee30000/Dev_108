@@ -1,0 +1,35 @@
+#Assignment: For Loop Patterns
+#Class: DEV 108
+#Date: 5/12/2025
+#Author: Arnuv Vijay
+#Description: This program prints 2 patterns based on user input for an odd number between 7 and 15. It checks for invalid inputs and provides feedback to the user.
+
+
+while True:
+    oddnumber = int(input("Enter an odd number between 7 and 15: "))
+    if 7 <= oddnumber <= 15 and oddnumber % 2 != 0:
+        break
+    else:
+        print("Invalid input. Please input an odd number between 7 and 15.")
+        continue
+
+k = 0
+print("Pattern 1 of size ", oddnumber)
+
+for i in range(oddnumber, 0, -1):
+    print("\\" * (k * 2), "$" * i, "*" * (2 * i), "$" * i, "/" * (k * 2), sep="")
+    k += 1
+
+print("Mirror image pattern of size ", oddnumber)
+k = 1
+
+for i in range(0, 1):
+    for i in range(oddnumber - 1, 0, -1):
+        print("A" * k," " * ((i - 1) * 2), "A" * k, sep="")
+        k += 1
+   
+    k = 1
+
+    for i in range(oddnumber - 1, 0, -1):
+        print("A" * (i - 1), " " * (k * 2), "A" * (i - 1), sep="")
+        k += 1
